@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stickman Games - Play Count Masters Online | Free Multiplayer Battle</title>
+    <meta name="description" content="Play Stickman Games online! Join the ultimate multiplayer battle in Count Masters. Build your army, defeat opponents, and become the champion in this addictive stickman battle game.">
+    <link rel="canonical" href="https://onlinestickmangames.online">
+    <meta property="og:title" content="Stickman Games - Play Count Masters Online">
+    <meta property="og:description" content="Join the ultimate multiplayer battle in Count Masters. Build your army and become the champion in this addictive stickman battle game.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://onlinestickmangames.online">
+    <style>
+        /* Dark Theme CSS */
+        :root {
+            --primary-purple: #8A2BE2;
+            --secondary-purple: #4B0082;
+            --background-dark: #1A1A2E;
+            --card-bg: #232342;
+            --text-light: #E6E6FA;
+            --text-gray: #B8B8D1;
+            --accent-glow: rgba(138, 43, 226, 0.2);
+            --tag-bg: #2C2C4E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--text-light);
+        }
+
+        .game-intro {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .game-container {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 2rem auto;
+            box-shadow: 0 4px 20px rgba(138, 43, 226, 0.15);
+            height: 80vh;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.1);
+            border: 1px solid rgba(138, 43, 226, 0.1);
+        }
+
+        .description {
+            color: var(--text-gray);
+            margin: 1rem 0;
+        }
+
+        .game-details {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.1);
+            border: 1px solid rgba(138, 43, 226, 0.1);
+        }
+
+        .game-info {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .game-info dt {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .game-info dd {
+            color: var(--text-light);
+        }
+
+        .rating {
+            color: var(--primary-purple);
+            font-weight: bold;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            background: var(--tag-bg);
+            color: var(--text-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .controls {
+            background: var(--tag-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .controls ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .controls li {
+            margin: 0.5rem 0;
+            color: var(--text-light);
+        }
+
+        .side-image {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .left-image {
+            left: 10px;
+        }
+
+        .right-image {
+            right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .game-info {
+                grid-template-columns: 1fr;
+            }
+
+            .game-container {
+                height: 70vh;
+                min-height: 400px;
+            }
+
+            .side-image {
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Stickman Games: Count Masters Online</h1>
+            <p class="game-intro">Experience the ultimate multiplayer battle where strategy meets action - Build your stickman army and dominate the arena!</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="game-container">
+            <iframe 
+                src="https://www.crazygames.com/embed/count-masters-stickman-games" 
+                class="game-frame"
+                title="Count Masters Stickman Games"
+                frameborder="0" 
+                allow="gamepad *;">
+            </iframe>
+            <a href="destruction.html" class="side-image left-image">
+                <img src="image/20250324-172520.jpg" alt="More Games" style="width: 100px; height: 100px;" />
+                <div class="play-now">PLAY NOW</div>
+            </a>
+            <a href="stickman-ww2.html" class="side-image right-image">
+                <img src="image/11.jpg" alt="More Games" style="width: 100px; height: 100px;" />
+                <div class="play-now">PLAY NOW</div>
+            </a>
+        </div>
+
+        <section>
+            <h2>Game Overview</h2>
+            <p class="description">Count Masters is an exciting multiplayer stickman battle game where you lead your army through challenging levels. Collect stickmen, multiply your forces, and engage in epic battles against other players or AI opponents.</p>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Multiplayer battles</li>
+                    <li>Army building mechanics</li>
+                    <li>Strategic gameplay</li>
+                    <li>Multiple challenging levels</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h2>How to Play</h2>
+                <ul>
+                    <li>Collect stickmen to grow your army</li>
+                    <li>Navigate through obstacles</li>
+                    <li>Defeat enemy armies</li>
+                    <li>Complete challenging missions</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h2>Game Tips</h2>
+                <ul>
+                    <li>Time your multipliers carefully</li>
+                    <li>Avoid obstacles to maintain army size</li>
+                    <li>Choose battle strategies wisely</li>
+                    <li>Watch for power-ups and bonuses</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="game-details">
+            <h2>Game Details</h2>
+            <dl class="game-info">
+                <dt>Developer:</dt>
+                <dd>FreePlay LLC</dd>
+                
+                <dt>Rating:</dt>
+                <dd class="rating">9.0 <span class="votes">(119,531 votes)</span></dd>
+                
+                <dt>Released:</dt>
+                <dd>February 2025</dd>
+                
+                <dt>Technology:</dt>
+                <dd>HTML5 (Unity WebGL)</dd>
+                
+                <dt>Platforms:</dt>
+                <dd>Browser (desktop, mobile, tablet), App Store(iOS, Android)</dd>
+            </dl>
+
+            <div class="tags">
+                <span class="tag">Casual 1,089</span>
+                <span class="tag">Mobile 559</span>
+                <span class="tag">Avoid 259</span>
+                <span class="tag">Running 85</span>
+                <span class="tag">Platform 264</span>
+                <span class="tag">Strategy 337</span>
+                <span class="tag">Math 26</span>
+                <span class="tag">Brain 147</span>
+                <span class="tag">Stickman 178</span>
+                <span class="tag">Arcade 342</span>
+            </div>
+
+            <div class="controls">
+                <h2>Controls</h2>
+                <ul>
+                    <li>Mouse = Move the character by moving the mouse left or right. Left-click to select buttons.</li>
+                    <li>Keyboard = Use the left and right arrow keys to move. Press space to select actions.</li>
+                </ul>
+            </div>
+
+            <p class="description">
+                Count Masters: Stickman Games is a fast-paced running game where you gather a growing army of stickmen to clash against rival crowds. Navigate through obstacles, choose the best paths to multiply your numbers, and lead your team to victory. Battle fierce opponents, defeat the King-stickman, and claim the castle in an action-packed race filled with strategy and excitement!
+            </p>
+        </section>
+    </main>
+</body>
+</html>
